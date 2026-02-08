@@ -5,7 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/favicon.svg">
     
-    <title>Irepair Canggu</title>
+    <title>Irepair Canggu - Professional Apple Device Repair in Bali</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Expert iPhone, iPad, and MacBook repair services in Canggu, Bali. Fast, reliable repairs with 90-day warranty. Same-day service available.">
+    <meta name="keywords" content="iPhone repair Canggu, MacBook repair Bali, iPad service Canggu, Apple repair Bali, iPhone screen replacement">
+    <meta name="author" content="Irepair Canggu">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Irepair Canggu - Professional Apple Device Repair">
+    <meta property="og:description" content="Expert iPhone, iPad, and MacBook repair services in Canggu, Bali with 90-day warranty.">
+    <meta property="og:image" content="img/og-image.jpg">
+    <meta property="og:url" content="https://irepaircanggu.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Irepair Canggu - Professional Apple Device Repair">
+    <meta name="twitter:description" content="Expert iPhone, iPad, and MacBook repair services in Canggu, Bali.">
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -150,13 +167,21 @@
         .hero-section {
             height: 100vh;
             min-height: 600px;
-            /* Parallax Background */
-            background: url('https://images.unsplash.com/photo-1654778747238-12314fb5a4aa?q=80&w=2070&auto') no-repeat center center/cover;
-            background-attachment: fixed; 
+            /* Optimized Background - scroll by default for better performance */
+            background: url('https://images.unsplash.com/photo-1654778747238-12314fb5a4aa?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            background-attachment: scroll; 
             position: relative;
             display: flex;
             align-items: center;
         }
+        
+        /* Parallax only on larger screens for better performance */
+        @media (min-width: 992px) {
+            .hero-section {
+                background-attachment: fixed;
+            }
+        }
+        
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -380,15 +405,31 @@
             transform: rotate(360deg);
         }
 
+        /* Image Error State */
+        .img-error {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 2rem;
+        }
+
         /* --- Media Queries for Responsive Layout --- */
         @media (max-width: 991px) {
             .hero-title { font-size: 2.8rem; }
-            .navbar { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+            .navbar { 
+                background: rgba(255, 255, 255, 0.98); 
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+                backdrop-filter: blur(10px);
+            }
         }
         @media (max-width: 768px) {
-            .hero-section { background-attachment: scroll; } /* Disable parallax on mobile for performance */
             .map-wrapper { height: 300px; }
             .hero-title { font-size: 2.2rem; }
+            .hero-section {
+                min-height: 500px;
+            }
         }
     </style>
 </head>
@@ -402,10 +443,12 @@
     </div>
 
     <!-- 2. Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fab fa-apple me-2"></i>Irepair <span>Canggu</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand" href="#home" aria-label="Irepair Canggu Home">
+                <i class="fab fa-apple me-2" aria-hidden="true"></i>Irepair <span>Canggu</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -430,7 +473,7 @@
             <div data-aos="fade-up" data-aos-duration="1000">
                 <h1 class="hero-title">Professional & Trusted<br><span style="font-weight: 300; opacity: 0.9;">Apple Device Service</span></h1>
                 <p class="lead mb-5 fw-light" style="opacity: 0.9;">Expert repair for your iPhone, iPad, and MacBook.<br>Fast, reliable, and warranty-backed solutions.</p>
-                <div class="d-flex justify-content-center gap-3">
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
                     <a href="#contact" class="btn btn-light btn-lg text-primary fw-bold px-5 py-3 rounded-pill shadow">Get Directions</a>
                     <a href="#services" class="btn btn-outline-light btn-lg fw-bold px-5 py-3 rounded-pill">View Services</a>
                 </div>
@@ -451,7 +494,7 @@
                 <!-- iPhone Service -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card text-center">
-                        <i class="fab fa-apple service-icon"></i>
+                        <i class="fab fa-apple service-icon" aria-hidden="true"></i>
                         <h4>iPhone Repair</h4>
                         <p class="text-muted mt-3">Screen replacement, battery health optimization, camera fixes, and logic board repair for all iPhone models.</p>
                     </div>
@@ -459,7 +502,7 @@
                 <!-- MacBook Service -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card text-center">
-                        <i class="fas fa-laptop service-icon"></i>
+                        <i class="fas fa-laptop service-icon" aria-hidden="true"></i>
                         <h4>MacBook Service</h4>
                         <p class="text-muted mt-3">SSD upgrades, screen hinge repair, keyboard replacement, and advanced liquid damage cleaning.</p>
                     </div>
@@ -467,7 +510,7 @@
                 <!-- iPad Service -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card text-center">
-                        <i class="fas fa-tablet-alt service-icon"></i>
+                        <i class="fas fa-tablet-alt service-icon" aria-hidden="true"></i>
                         <h4>iPad Repair</h4>
                         <p class="text-muted mt-3">Glass digitizer replacement, battery issues, and charging port repairs for all iPad generations.</p>
                     </div>
@@ -487,18 +530,18 @@
 
             <!-- Interactive Filters -->
             <div class="text-center portfolio-filters" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">All Devices</button>
-                <button class="filter-btn" data-filter="iphone">iPhone</button>
-                <button class="filter-btn" data-filter="macbook">MacBook</button>
-                <button class="filter-btn" data-filter="ipad">iPad</button>
+                <button class="filter-btn active" data-filter="all" aria-label="Show all devices">All Devices</button>
+                <button class="filter-btn" data-filter="iphone" aria-label="Show iPhone repairs">iPhone</button>
+                <button class="filter-btn" data-filter="macbook" aria-label="Show MacBook repairs">MacBook</button>
+                <button class="filter-btn" data-filter="ipad" aria-label="Show iPad repairs">iPad</button>
             </div>
 
             <!-- Dynamic Gallery -->
             <div class="row g-4">
                 <!-- Item 1 -->
                 <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="iphone" data-aos="zoom-in">
-                    <div class="portfolio-item" onclick="openModal('iPhone 13 Pro Screen', 'Complete screen and OLED replacement.', 'img/img1.png')">
-                        <img src="img/img1.png" alt="iPhone Repair">
+                    <div class="portfolio-item" onclick="openModal('iPhone 13 Pro Screen', 'Complete screen and OLED replacement with original quality display.', 'img/img1.webp')" role="button" tabindex="0" aria-label="View iPhone 13 Pro repair details">
+                        <img src="img/img1.webp" alt="iPhone 13 Pro screen replacement repair" loading="lazy">
                         <div class="portfolio-overlay">
                             <div class="portfolio-text">
                                 <h5>iPhone 13 Pro</h5>
@@ -510,8 +553,8 @@
 
                 <!-- Item 2 -->
                 <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="macbook" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="portfolio-item" onclick="openModal('MacBook Air M1 Battery', 'Old battery swapped out for new high-capacity cell.', 'img/img3.png')">
-                        <img src="img/img3.png" alt="MacBook Repair">
+                    <div class="portfolio-item" onclick="openModal('MacBook Air M1 Battery', 'Old battery swapped out for new high-capacity cell.', 'img/img3.webp')" role="button" tabindex="0" aria-label="View MacBook Air M1 battery replacement details">
+                        <img src="img/img3.webp" alt="MacBook Air M1 battery replacement" loading="lazy">
                         <div class="portfolio-overlay">
                             <div class="portfolio-text">
                                 <h5>MacBook Air M1</h5>
@@ -523,8 +566,8 @@
 
                 <!-- Item 3 -->
                 <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="ipad" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="portfolio-item" onclick="openModal('iPad Pro 12.9"', 'Glass digitizer repair after a drop.', 'img/img6.png')">
-                        <img src="img/img6.png" alt="iPad Repair">
+                    <div class="portfolio-item" onclick="openModal('iPad Pro 12.9\"', 'Glass digitizer repair after a drop.', 'img/img6.webp')" role="button" tabindex="0" aria-label="View iPad Pro glass replacement details">
+                        <img src="img/img6.webp" alt="iPad Pro 12.9 inch glass digitizer replacement" loading="lazy">
                         <div class="portfolio-overlay">
                             <div class="portfolio-text">
                                 <h5>iPad Pro</h5>
@@ -536,8 +579,8 @@
                 
                  <!-- Item 4 -->
                  <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="iphone" data-aos="zoom-in">
-                    <div class="portfolio-item" onclick="openModal('iPhone 11 Logic Board', 'Microsoldering repair for touch IC disease.', 'img/img2.png')">
-                        <img src="img/img2.png" alt="iPhone Repair">
+                    <div class="portfolio-item" onclick="openModal('iPhone 11 Logic Board', 'Microsoldering repair for touch IC disease.', 'img/img2.webp')" role="button" tabindex="0" aria-label="View iPhone 11 logic board repair details">
+                        <img src="img/img2.webp" alt="iPhone 11 logic board microsoldering repair" loading="lazy">
                         <div class="portfolio-overlay">
                             <div class="portfolio-text">
                                 <h5>iPhone 11</h5>
@@ -549,8 +592,8 @@
 
                  <!-- Item 5 -->
                  <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="macbook" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="portfolio-item" onclick="openModal('MacBook Pro Keyboard', 'Replaced sticky keyboard mechanism.', 'img/img4.png')">
-                        <img src="img/img4.png" alt="MacBook Repair">
+                    <div class="portfolio-item" onclick="openModal('MacBook Pro Keyboard', 'Replaced sticky keyboard mechanism.', 'img/img4.webp')" role="button" tabindex="0" aria-label="View MacBook Pro keyboard repair details">
+                        <img src="img/img4.webp" alt="MacBook Pro 2019 keyboard replacement" loading="lazy">
                         <div class="portfolio-overlay">
                             <div class="portfolio-text">
                                 <h5>MacBook Pro 2019</h5>
@@ -562,8 +605,8 @@
 
                  <!-- Item 6 -->
                  <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="ipad" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="portfolio-item" onclick="openModal('iPad Air 4 Charging Port', 'Dock connector replacement.', 'img/img5.png')">
-                        <img src="img/img5.png" alt="iPad Repair">
+                    <div class="portfolio-item" onclick="openModal('iPad Air 4 Charging Port', 'Dock connector replacement.', 'img/img5.webp')" role="button" tabindex="0" aria-label="View iPad Air 4 charging port repair details">
+                        <img src="img/img5.webp" alt="iPad Air 4 charging port replacement" loading="lazy">
                         <div class="portfolio-overlay">
                             <div class="portfolio-text">
                                 <h5>iPad Air 4</h5>
@@ -586,28 +629,28 @@
             <div class="row g-4">
                 <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="advantage-box">
-                        <div class="circle-icon"><i class="fas fa-user-shield"></i></div>
+                        <div class="circle-icon"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
                         <h5>Expert Techs</h5>
                         <p class="small text-muted">Certified repair specialists.</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="advantage-box">
-                        <div class="circle-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="circle-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
                         <h5>Warranty</h5>
                         <p class="small text-muted">90-day service warranty.</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="advantage-box">
-                        <div class="circle-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="circle-icon"><i class="fas fa-tachometer-alt" aria-hidden="true"></i></div>
                         <h5>Fast Service</h5>
                         <p class="small text-muted">Same-day repairs available.</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="advantage-box">
-                        <div class="circle-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="circle-icon"><i class="fas fa-check-circle" aria-hidden="true"></i></div>
                         <h5>Genuine Parts</h5>
                         <p class="small text-muted">High-quality OEM components.</p>
                     </div>
@@ -628,23 +671,15 @@
                 <!-- Left: Info & Social Buttons -->
                 <div class="col-lg-5" data-aos="fade-right">
                     <div class="d-flex align-items-start mb-5">
-                        <div class="me-4 text-primary mt-1"><i class="fas fa-map-marker-alt fa-2x"></i></div>
+                        <div class="me-4 text-primary mt-1"><i class="fas fa-map-marker-alt fa-2x" aria-hidden="true"></i></div>
                         <div>
                             <h5 class="fw-bold mb-1">Our Location</h5>
                             <p class="text-muted mb-0">Canggu, Bali, Indonesia</p>
                         </div>
                     </div>
 
-                    <!-- <div class="d-flex align-items-start mb-5">
-                        <div class="me-4 text-primary mt-1"><i class="fas fa-envelope fa-2x"></i></div>
-                        <div>
-                            <h5 class="fw-bold mb-1">Email Us</h5>
-                            <p class="text-muted mb-0">support@irepaircanggu.com</p>
-                        </div>
-                    </div> -->
-
                     <div class="d-flex align-items-start mb-4">
-                        <div class="me-4 text-primary mt-1"><i class="fas fa-clock fa-2x"></i></div>
+                        <div class="me-4 text-primary mt-1"><i class="fas fa-clock fa-2x" aria-hidden="true"></i></div>
                         <div>
                             <h5 class="fw-bold mb-1">Opening Hours</h5>
                             <p class="text-muted mb-0">Mon - Sat: 09:00 AM - 08:00 PM</p>
@@ -654,11 +689,11 @@
                     <!-- WhatsApp & Telegram Buttons -->
                     <div class="mt-5">
                         <p class="fw-bold mb-3">Chat with us instantly:</p>
-                        <a href="https://wa.me/6282227565452" target="_blank" class="social-btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        <a href="https://wa.me/6282227565452" target="_blank" rel="noopener noreferrer" class="social-btn btn-whatsapp" aria-label="Chat with us on WhatsApp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat on WhatsApp
                         </a>
-                        <a href="https://t.me/irepair_canggu" target="_blank" class="social-btn btn-telegram">
-                            <i class="fab fa-telegram"></i> Chat on Telegram
+                        <a href="https://t.me/irepair_canggu" target="_blank" rel="noopener noreferrer" class="social-btn btn-telegram" aria-label="Chat with us on Telegram">
+                            <i class="fab fa-telegram" aria-hidden="true"></i> Chat on Telegram
                         </a>
                     </div>
                 </div>
@@ -666,12 +701,13 @@
                 <!-- Right: Google Map -->
                 <div class="col-lg-7" data-aos="fade-left">
                     <div class="map-wrapper">
-                        <!-- Embedded map: search for iRepair Canggu -->
+                        <!-- Updated map embed with better query -->
                         <iframe
-                            src="https://www.google.com/maps?q=iRepair+Canggu&z=15&output=embed"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.467438413526!2d115.13856097588224!3d-8.64701418795013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd239a2e76b54f1%3A0x12f004b707ad1a14!2siRepair%20Canggu!5e0!3m2!1sen!2sid!4v1770573319483!5m2!1sen!2sid"
                             allowfullscreen=""
                             loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Irepair Canggu Location Map">
                         </iframe>
                     </div>
                 </div>
@@ -682,18 +718,21 @@
     <!-- 8. Footer -->
     <footer>
         <div class="container text-center">
-            <h3 class="mb-4"><i class="fab fa-apple"></i> Irepair Canggu</h3>
+            <h3 class="mb-4"><i class="fab fa-apple" aria-hidden="true"></i> Irepair Canggu</h3>
             <div class="mb-4">
-                <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
-                <!-- <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a> -->
-                <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/irepaircanggu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Visit our Facebook page">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="https://instagram.com/irepaircanggu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Visit our Instagram page">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
             </div>
-            <p class="small text-white-50">&copy; 2026 Irepair Canggu</p>
+            <p class="small text-white-50">&copy; 2026 Irepair Canggu. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Dynamic Modal -->
-    <div class="modal fade" id="portfolioModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content border-0 shadow overflow-hidden">
                 <div class="modal-header border-0">
@@ -701,10 +740,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
-                    <img src="" id="modalImage" class="w-100" alt="Repair Detail">
+                    <img src="" id="modalImage" class="w-100" alt="Repair detail image">
                     <div class="p-4">
                         <p id="modalDesc" class="text-muted">Description goes here.</p>
-                        <div class="alert alert-info border-0 bg-light"><i class="fas fa-info-circle me-2 text-primary"></i> This repair was completed within 2 hours using premium parts.</div>
+                        <div class="alert alert-info border-0 bg-light">
+                            <i class="fas fa-info-circle me-2 text-primary" aria-hidden="true"></i> This repair was completed within 2 hours using premium parts.
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer border-0">
@@ -775,13 +816,25 @@
             });
         });
 
-        // 5. Dynamic Modal Logic
+        // 5. Dynamic Modal Logic with Error Handling
         const portfolioModal = new bootstrap.Modal(document.getElementById('portfolioModal'));
         
         function openModal(title, desc, imgSrc) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('modalImage').src = imgSrc;
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDesc = document.getElementById('modalDesc');
+            
+            // Set content
+            modalTitle.innerText = title;
+            modalDesc.innerText = desc;
+            
+            // Image error handling
+            modalImage.onerror = function() {
+                this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect fill="%23f0f0f0" width="800" height="400"/%3E%3Ctext fill="%23999" font-family="sans-serif" font-size="24" dy="10.5" font-weight="bold" x="50%25" y="50%25" text-anchor="middle"%3EImage not available%3C/text%3E%3C/svg%3E';
+                this.alt = 'Image could not be loaded';
+            };
+            
+            modalImage.src = imgSrc;
             portfolioModal.show();
         }
 
@@ -801,12 +854,54 @@
                         bsCollapse.hide();
                     }
 
-                    targetElement.scrollIntoView({
+                    // Smooth scroll with offset for fixed navbar
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
+
+        // 7. Image Lazy Loading Error Handler
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            img.addEventListener('error', function() {
+                if (!this.classList.contains('error-handled')) {
+                    this.classList.add('error-handled');
+                    console.warn('Failed to load image:', this.src);
+                    // Optionally set a placeholder
+                    this.style.background = 'linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%)';
+                }
+            });
+        });
+
+        // 8. Active Navigation Link Highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNavOnScroll() {
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNavOnScroll);
     </script>
 </body>
 </html>
