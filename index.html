@@ -1,9 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irepair Canggu</title>
-    <link rel="icon" href="img/favicon.svg">
+    <link rel="icon" href="img/favicon.ico">
     
     <title>Irepair Canggu - Professional Apple Device Repair in Bali</title>
     
@@ -18,50 +18,927 @@
     <meta property="og:description" content="Expert iPhone, iPad, and MacBook repair services in Canggu, Bali with 90-day warranty.">
     <meta property="og:image" content="img/og-image.jpg">
     <meta property="og:url" content="https://irepaircanggu.com">
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Irepair Canggu - Professional Apple Device Repair">
+    <meta name="twitter:description" content="Expert iPhone, iPad, and MacBook repair services in Canggu, Bali.">
+    <!-- SEO additions: canonical, robots, hreflang, sitemap, OG/Twitter image metadata -->
+    <link rel="canonical" href="https://irepaircanggu.com">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="alternate" hreflang="en" href="https://irepaircanggu.com/">
+    <link rel="alternate" hreflang="id" href="https://irepaircanggu.com/id/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Open Graph image dimensions (helps social previews) -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image:alt" content="Irepair Canggu - professional Apple device repair in Bali">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- 1. Modern Apple-Blue Design Variables --- */
+        :root {
+            /* Professional Blue Gradient - Clean & Trustworthy */
+            --primary-gradient: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
+            
+            /* Secondary Hover Gradient */
+            --hover-gradient: linear-gradient(135deg, #00c6fb 0%, #005bea 100%);
+            
+            /* Apple Standard Backgrounds */
+            --bg-body: #f5f5f7; /* Light Grey used on Apple.com */
+            --bg-card: #ffffff;
+            
+            /* Typography Colors */
+            --text-main: #1d1d1f; /* Apple Black */
+            --text-secondary: #86868b; /* Apple Grey */
+            
+            /* Modern Minimalist Shadows (Soft & Diffused) */
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.03);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.06);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.1);
+            
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --radius-card: 20px;
+            --radius-btn: 980px; /* Pill shape */
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e1e1e1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b0b0b0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #005bea;
+        }
+
+        /* Loading Spinner */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            color: #005bea;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+            letter-spacing: -0.02em; /* Tight tracking like Apple */
+            color: var(--text-main);
+        }
+        .text-gradient {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        /* Modern Buttons */
+        .btn-modern {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            padding: 12px 32px;
+            border-radius: var(--radius-btn);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 12px rgba(0, 91, 234, 0.2);
+        }
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 91, 234, 0.3);
+            color: white;
+            background: var(--hover-gradient);
+        }
+        .btn-outline-modern {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 12px 32px;
+            border-radius: var(--radius-btn);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-modern:hover {
+            background: white;
+            color: #005bea;
+            border-color: white;
+        }
+
+        /* --- Navbar (Frosted Glass) --- */
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+        .navbar.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--text-main) !important;
+        }
+        .navbar-brand span { color: #005bea; }
+        .nav-link {
+            color: var(--text-main) !important;
+            font-weight: 400;
+            font-size: 0.95rem;
+            margin: 0 8px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #005bea !important;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            height: 100vh;
+            min-height: 650px;
+            /* Optimized Background */
+            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            background-attachment: scroll; 
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        /* Parallax only on desktop */
+        @media (min-width: 992px) {
+            .hero-section { background-attachment: fixed; }
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Cleaner overlay for minimalist text */
+            background: linear-gradient(135deg, rgba(0, 30, 80, 0.8) 0%, rgba(0, 91, 234, 0.7) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        
+        /* --- Service Cards (Minimalist) --- */
+        .service-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 40px 30px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* --- Portfolio Filtering --- */
+        .filter-btn {
+            background: white;
+            border: 1px solid #e5e5e5;
+            color: var(--text-secondary);
+            padding: 8px 24px;
+            border-radius: 30px;
+            margin: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(0, 91, 234, 0.25);
+        }
+        .portfolio-item {
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            margin-bottom: 24px;
+            cursor: pointer;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+            background: white;
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Darker for better text contrast */
+            backdrop-filter: blur(2px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        .portfolio-text h5 {
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* --- Advantages --- */
+        .advantage-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--radius-card);
+            background: white;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .advantage-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .circle-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 91, 234, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #005bea;
+            font-size: 1.5rem;
+        }
+
+        /* --- Contact Section --- */
+        .contact-section {
+            background: white;
+        }
+        .map-wrapper {
+            width: 100%;
+            height: 450px;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* Social Buttons */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+        .social-btn:hover { transform: translateY(-2px); color: white; }
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-telegram { background-color: #0088cc; }
+
+        /* --- Footer --- */
+        footer {
+            background: #fff;
+            color: var(--text-main);
+            padding: 60px 0 30px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .footer-social-link {
+            width: 40px;
+            height: 40px;
+            background: #f5f5f7;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--text-main);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .footer-social-link:hover {
+            background: var(--primary-gradient);
+            color: white;
+            transform: rotate(360deg);
+        }
+
+        /* Image Error State */
+        .img-error {
+            background: #f5f5f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+        }
+
+        /* --- Media Queries (Fully Responsive) --- */
+        @media (max-width: 991px) {
+            .hero-title { font-size: 2.8rem; }
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                margin-top: 15px;
+                border-radius: 20px;
+                box-shadow: var(--shadow-lg);
+                border: 1px solid #eee;
+            }
+            .nav-link { padding: 10px 0; }
+        }
+        @media (max-width: 768px) {
+            .hero-section { min-height: 600px; }
+            .hero-title { font-size: 2.2rem; }
+            .map-wrapper { height: 300px; }
+            .btn-modern, .btn-outline-modern { width: 100%; margin-bottom: 10px; }
+        }
+    </style>
+    
+    <!-- JSON-LD structured data for Local Business / Repair Service -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RepairService",
+        "name": "Irepair Canggu",
+        "url": "https://irepaircanggu.com",
+        "logo": "https://irepaircanggu.com/img/og-image.jpg",
+        "image": "https://irepaircanggu.com/img/og-image.jpg",
+        "description": "Expert iPhone, iPad, and MacBook repair services in Canggu, Bali. Fast, reliable repairs with 90-day warranty.",
+        "telephone": "+6282227565452",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Canggu",
+            "addressRegion": "Bali",
+            "addressCountry": "ID"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -8.64701418795013,
+            "longitude": 115.13856097588224
+        },
+        "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "09:00",
+            "closes": "20:00"
+        }],
+        "sameAs": [
+            "https://facebook.com/irepaircanggu",
+            "https://instagram.com/irepaircanggu",
+            "https://t.me/irepair_canggu",
+            "https://wa.me/6282227565452"
+        ]
+    }
+    </script>
 </head>
 <body>
-    <div class="maintenance">
-  <div class="maintenance_contain">
-    <img src="https://demo.wpbeaveraddons.com/wp-content/uploads/2018/02/main-vector.png" alt="maintenance">
-    <span class="pp-infobox-title-prefix">WE ARE COMING SOON</span>
-    <div class="pp-infobox-title-wrapper">
-		  <h3 class="pp-infobox-title">The website under maintenance!</h3>
-	  </div> 
-  <div class="pp-infobox-description">
-		<p>Someone has kidnapped our site. We are negotiation ransom and<br>will resolve this issue in 24/7 hours</p>			</div>    
-    <span class="title-text pp-primary-title">We are social</span>
-    <div class="pp-social-icons pp-social-icons-center pp-responsive-center">
-	<span class="pp-social-icon">
-		<link itemprop="url" href="#">
-		<a itemprop="sameAs" href="#" target="_blank" title="Facebook" aria-label="Facebook" role="button">
-			<i class="fa fa-facebook"></i>
-		</a>
-	</span>
-	<span class="pp-social-icon">
-		<link itemprop="url" href="#">
-		<a itemprop="sameAs" href="#" target="_blank" title="Twitter" aria-label="Twitter" role="button">
-			<i class="fa fa-twitter"></i>
-		</a>
-	</span>
-	<span class="pp-social-icon">
-		<link itemprop="url" href="#">
-		<a itemprop="sameAs" href="#" target="_blank" title="Google Plus" aria-label="Google Plus" role="button">
-			<i class="fa fa-google-plus"></i>
-		</a>
-	</span>
-	<span class="pp-social-icon">
-		<a itemprop="sameAs" href="#" target="_blank" title="LinkedIn" aria-label="LinkedIn" role="button">
-			<i class="fa fa-linkedin"></i>
-		</a>
-	</span>
-</div>
-  </div>
-</div>
+
+    <!-- 1. Loading Spinner -->
+    <div id="loader-wrapper">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- 2. Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#home" aria-label="Irepair Canggu Home">
+                <i class="fab fa-apple me-2" aria-hidden="true"></i>Irepair <span>Canggu</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#advantages">Why Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="#contact" class="btn btn-modern btn-sm w-100">Find Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content text-center">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="hero-title">Professional & Trusted<br><span style="font-weight: 300; opacity: 0.9;">Apple Device Service</span></h1>
+                <p class="lead mb-5 fw-light" style="opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">Expert repair for your iPhone, iPad, and MacBook.<br>Fast, reliable, and warranty-backed solutions.</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="#contact" class="btn btn-modern">Get Directions</a>
+                    <a href="#services" class="btn btn-outline-modern">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Services Section -->
+    <section id="services" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-primary fw-bold text-uppercase ls-2" style="color: #005bea !important;">Our Expertise</h6>
+                <h2 class="mb-3">What We <span class="text-gradient">Fix</span></h2>
+                <p class="text-secondary">Comprehensive repair solutions for your Apple ecosystem.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- iPhone Service -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <i class="fab fa-apple service-icon" aria-hidden="true"></i>
+                        <h4>iPhone Repair</h4>
+                        <p class="text-secondary mt-3">Screen replacement, battery health optimization, camera fixes, and logic board repair for all iPhone models.</p>
+                    </div>
+                </div>
+                <!-- MacBook Service -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <i class="fas fa-laptop service-icon" aria-hidden="true"></i>
+                        <h4>MacBook Service</h4>
+                        <p class="text-secondary mt-3">SSD upgrades, screen hinge repair, keyboard replacement, and advanced liquid damage cleaning.</p>
+                    </div>
+                </div>
+                <!-- iPad Service -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <i class="fas fa-tablet-alt service-icon" aria-hidden="true"></i>
+                        <h4>iPad Repair</h4>
+                        <p class="text-secondary mt-3">Glass digitizer replacement, battery issues, and charging port repairs for all iPad generations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Portfolio / Repair Cases Section -->
+    <section id="portfolio" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-primary fw-bold text-uppercase" style="color: #005bea !important;">Repair Cases</h6>
+                <h2 class="mb-3">Before & <span class="text-gradient">After</span></h2>
+                <p class="text-secondary">See the quality of our workmanship.</p>
+            </div>
+
+            <!-- Interactive Filters -->
+            <div class="text-center portfolio-filters mb-4" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all" aria-label="Show all devices">All Devices</button>
+                <button class="filter-btn" data-filter="iphone" aria-label="Show iPhone repairs">iPhone</button>
+                <button class="filter-btn" data-filter="macbook" aria-label="Show MacBook repairs">MacBook</button>
+                <button class="filter-btn" data-filter="ipad" aria-label="Show iPad repairs">iPad</button>
+            </div>
+
+            <!-- Dynamic Gallery -->
+            <div class="row g-4">
+                <!-- Item 1 -->
+                <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="iphone" data-aos="zoom-in">
+                    <div class="portfolio-item" onclick="openModal('iPhone 13 Pro Screen', 'Complete screen and OLED replacement with original quality display.', 'img/img1.webp')" role="button" tabindex="0" aria-label="View iPhone 13 Pro repair details">
+                        <img src="img/img1.webp" alt="iPhone 13 Pro screen replacement repair" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-text">
+                                <h5>iPhone 13 Pro</h5>
+                                <p style="margin:0; font-size:0.9rem; color: #eee;">Screen Replacement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="macbook" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="portfolio-item" onclick="openModal('MacBook Air M1 Battery', 'Old battery swapped out for new high-capacity cell.', 'img/img3.webp')" role="button" tabindex="0" aria-label="View MacBook Air M1 battery replacement details">
+                        <img src="img/img3.webp" alt="MacBook Air M1 battery replacement" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-text">
+                                <h5>MacBook Air M1</h5>
+                                <p style="margin:0; font-size:0.9rem; color: #eee;">Battery Replacement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="ipad" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="portfolio-item" onclick="openModal('iPad Pro 12.9\"', 'Glass digitizer repair after a drop.', 'img/img6.webp')" role="button" tabindex="0" aria-label="View iPad Pro glass replacement details">
+                        <img src="img/img6.webp" alt="iPad Pro 12.9 inch glass digitizer replacement" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-text">
+                                <h5>iPad Pro</h5>
+                                <p style="margin:0; font-size:0.9rem; color: #eee;">Glass Replacement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- Item 4 -->
+                 <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="iphone" data-aos="zoom-in">
+                    <div class="portfolio-item" onclick="openModal('iPhone 11 Logic Board', 'Microsoldering repair for touch IC disease.', 'img/img2.webp')" role="button" tabindex="0" aria-label="View iPhone 11 logic board repair details">
+                        <img src="img/img2.webp" alt="iPhone 11 logic board microsoldering repair" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-text">
+                                <h5>iPhone 11</h5>
+                                <p style="margin:0; font-size:0.9rem; color: #eee;">Logic Board Repair</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Item 5 -->
+                 <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="macbook" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="portfolio-item" onclick="openModal('MacBook Pro Keyboard', 'Replaced sticky keyboard mechanism.', 'img/img4.webp')" role="button" tabindex="0" aria-label="View MacBook Pro keyboard repair details">
+                        <img src="img/img4.webp" alt="MacBook Pro 2019 keyboard replacement" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-text">
+                                <h5>MacBook Pro 2019</h5>
+                                <p style="margin:0; font-size:0.9rem; color: #eee;">Keyboard Fix</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Item 6 -->
+                 <div class="col-md-4 col-sm-6 portfolio-item-wrapper" data-category="ipad" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="portfolio-item" onclick="openModal('iPad Air 4 Charging Port', 'Dock connector replacement.', 'img/img5.webp')" role="button" tabindex="0" aria-label="View iPad Air 4 charging port repair details">
+                        <img src="img/img5.webp" alt="iPad Air 4 charging port replacement" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-text">
+                                <h5>iPad Air 4</h5>
+                                <p style="margin:0; font-size:0.9rem; color: #eee;">Charging Port</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Advantages Section -->
+    <section id="advantages" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="mb-3">Why Choose <span class="text-gradient">Us</span></h2>
+                <p class="text-secondary">We provide the best service experience.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="advantage-box">
+                        <div class="circle-icon"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
+                        <h5>Expert Techs</h5>
+                        <p class="small text-secondary">Certified repair specialists.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="advantage-box">
+                        <div class="circle-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+                        <h5>Warranty</h5>
+                        <p class="small text-secondary">90-day service warranty.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="advantage-box">
+                        <div class="circle-icon"><i class="fas fa-tachometer-alt" aria-hidden="true"></i></div>
+                        <h5>Fast Service</h5>
+                        <p class="small text-secondary">Same-day repairs available.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="advantage-box">
+                        <div class="circle-icon"><i class="fas fa-check-circle" aria-hidden="true"></i></div>
+                        <h5>Genuine Parts</h5>
+                        <p class="small text-secondary">High-quality OEM components.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Contact Section (Map & Social Buttons) -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="mb-3">Get In <span class="text-gradient">Touch</span></h2>
+                <p class="text-secondary">Visit our store or contact us directly.</p>
+            </div>
+
+            <div class="row g-5">
+                <!-- Left: Info & Social Buttons -->
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="d-flex align-items-start mb-5">
+                        <div class="me-4 text-primary mt-1" style="color: #005bea !important;"><i class="fas fa-map-marker-alt fa-2x" aria-hidden="true"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Our Location</h5>
+                            <p class="text-secondary mb-0">Canggu, Bali, Indonesia</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="me-4 text-primary mt-1" style="color: #005bea !important;"><i class="fas fa-clock fa-2x" aria-hidden="true"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Opening Hours</h5>
+                            <p class="text-secondary mb-0">Mon - Sat: 09:00 AM - 08:00 PM</p>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp & Telegram Buttons -->
+                    <div class="mt-5">
+                        <p class="fw-bold mb-3">Chat with us instantly:</p>
+                        <a href="https://wa.me/6282227565452" target="_blank" rel="noopener noreferrer" class="social-btn btn-whatsapp" aria-label="Chat with us on WhatsApp">
+                            <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> Chat on WhatsApp
+                        </a>
+                        <a href="https://t.me/irepair_canggu" target="_blank" rel="noopener noreferrer" class="social-btn btn-telegram" aria-label="Chat with us on Telegram">
+                            <i class="fab fa-telegram me-2" aria-hidden="true"></i> Chat on Telegram
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Google Map -->
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="map-wrapper">
+                        <!-- Updated map embed with better query -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.467438413526!2d115.13856097588224!3d-8.64701418795013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd239a2e76b54f1%3A0x12f004b707ad1a14!2siRepair%20Canggu!5e0!3m2!1sen!2sid!4v1770573319483!5m2!1sen!2sid"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Irepair Canggu Location Map">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer>
+        <div class="container text-center">
+            <h3 class="mb-4 fw-bold"><i class="fab fa-apple" aria-hidden="true"></i> Irepair Canggu</h3>
+            <div class="mb-4">
+                <a href="https://facebook.com/irepaircanggu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Visit our Facebook page">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="https://instagram.com/irepaircanggu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Visit our Instagram page">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+            </div>
+            <p class="small text-secondary">&copy; 2026 Irepair Canggu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Dynamic Modal -->
+    <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow overflow-hidden" style="border-radius: 20px;">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="modalTitle">Repair Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="" id="modalImage" class="w-100" alt="Repair detail image">
+                    <div class="p-4">
+                        <p id="modalDesc" class="text-secondary">Description goes here.</p>
+                        <div class="alert alert-info border-0 bg-light">
+                            <i class="fas fa-info-circle me-2" style="color: #005bea;" aria-hidden="true"></i> This repair was completed within 2 hours using premium parts.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-modern rounded-pill" onclick="window.location.href='#contact'">Book This Service</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // 1. Initialize AOS (Animate On Scroll)
+        AOS.init({
+            once: true,
+            offset: 80,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // 2. Loading Spinner Logic
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader-wrapper');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 400);
+        });
+
+        // 3. Dynamic Navbar Transparency on Scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 4. Portfolio Filtering System
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        // Re-trigger AOS animation for filtered items
+                        setTimeout(() => item.classList.add('aos-animate'), 50);
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('aos-animate');
+                    }
+                });
+            });
+        });
+
+        // 5. Dynamic Modal Logic with Error Handling
+        const portfolioModal = new bootstrap.Modal(document.getElementById('portfolioModal'));
+        
+        function openModal(title, desc, imgSrc) {
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDesc = document.getElementById('modalDesc');
+            
+            // Set content
+            modalTitle.innerText = title;
+            modalDesc.innerText = desc;
+            
+            // Image error handling
+            modalImage.onerror = function() {
+                this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect fill="%23f5f5f7" width="800" height="400"/%3E%3Ctext fill="%2386868b" font-family="sans-serif" font-size="24" dy="10.5" font-weight="bold" x="50%25" y="50%25" text-anchor="middle"%3EImage not available%3C/text%3E%3C/svg%3E';
+                this.alt = 'Image could not be loaded';
+            };
+            
+            modalImage.src = imgSrc;
+            portfolioModal.show();
+        }
+
+        // 6. Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const navCollapse = document.querySelector('.navbar-collapse');
+                    if (navCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navCollapse, {toggle: false});
+                        bsCollapse.hide();
+                    }
+
+                    // Smooth scroll with offset for fixed navbar
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 7. Image Lazy Loading Error Handler
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            img.addEventListener('error', function() {
+                if (!this.classList.contains('error-handled')) {
+                    this.classList.add('error-handled');
+                    // Set fallback color
+                    this.style.background = '#f5f5f7';
+                }
+            });
+        });
+
+        // 8. Active Navigation Link Highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNavOnScroll() {
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNavOnScroll);
+    </script>
 </body>
 </html>
-
-
