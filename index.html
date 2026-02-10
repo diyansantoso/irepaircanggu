@@ -434,6 +434,33 @@
         }
     </style>
 
+    <!-- Hero title & CTA color fixes -->
+    <style>
+        /* Ensure hero title is readable on dark overlay */
+        .hero-title { color: #ffffff !important; text-shadow: 0 2px 6px rgba(0,0,0,0.45); }
+        .hero-title span { color: rgba(255,255,255,0.9) !important; font-weight: 300; }
+
+        /* Primary CTA button (solid gradient) - ensure good contrast */
+        .btn-modern { color: #fff !important; background: linear-gradient(135deg,#005bea 0%,#00c6fb 100%) !important; box-shadow: 0 6px 18px rgba(0,91,234,0.18); }
+        .btn-modern:focus, .btn-modern:active { box-shadow: 0 8px 20px rgba(0,91,234,0.22); }
+
+        /* Secondary CTA (outline) - visible on dark hero */
+        .btn-outline-modern {
+            color: #ffffff !important;
+            border: 1px solid rgba(255,255,255,0.85) !important;
+            background: rgba(255,255,255,0.06) !important;
+        }
+        .btn-outline-modern:hover {
+            background: #ffffff !important;
+            color: #005bea !important;
+            border-color: transparent !important;
+        }
+
+        @media (max-width: 575px) {
+            .btn-modern, .btn-outline-modern { padding: 12px 18px; font-size: 0.95rem; }
+        }
+    </style>
+
     <!-- Small-screen navbar: transparent until scrolled or menu open -->
     <style>
         @media (max-width: 991px) {
